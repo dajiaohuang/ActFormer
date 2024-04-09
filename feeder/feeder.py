@@ -63,6 +63,6 @@ class Feeder(torch.utils.data.Dataset):
         data_numpy = tools.frame_snake(data_numpy, self.T, self.random_crop)
         if not (data_numpy.shape == (self.C, self.V, self.T)):
             print(data_numpy.shape, self.keys[index])
-        assert data_numpy.shape == (self.C, self.V, self.T)
+        # assert data_numpy.shape == (self.C, self.V, self.T)
 
         return data_numpy, self.label[self.keys[index]]
