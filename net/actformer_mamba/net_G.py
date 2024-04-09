@@ -152,7 +152,9 @@ class ActFormer_Generator(nn.Module):
         if spectral_norm:
             self.head = nn.utils.spectral_norm(self.head)
         self.tanh = nn.Tanh()
-
+        self.norm_f = (nn.LayerNorm if not rms_norm else RMSNorm)(
+            embed_dim, eps=norm_epsilon, **factory_kwargs
+        )
         nn.init.orthogonal_(self.class_embedding.weight)
 
 
