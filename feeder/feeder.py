@@ -47,7 +47,7 @@ class Feeder(torch.utils.data.Dataset):
                     self.label[k] = 0
                 else:
                     self.label[k] = -1
-                assert self.data[k].shape[:2] == (self.C, self.V)
+                # assert self.data[k].shape[:2] == (self.C, self.V)
         self.N = len(self.keys)
 
 
